@@ -93,7 +93,7 @@ of customers for them to give stickers to, sorted by last name, then first name.
 HINT: This query requires you to join two tables, use an aggregate function, and use the HAVING keyword. */
 SELECT cust.customer_first_name, customer_last_name, round(sum(cp.quantity*cp.cost_to_customer_per_qty),2) as total_cost
 FROM customer_purchases as cp
-LEFT JOIN customer as cust
+INNER JOIN customer as cust
 	on cp.customer_id = cust.customer_id
 GROUP by cp.customer_id
 HAVING total_cost > 2000
