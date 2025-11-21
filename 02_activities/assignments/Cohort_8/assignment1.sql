@@ -10,7 +10,7 @@ FROM customer;
 
 /* 2. Write a query that displays all of the columns and 10 rows from the cus- tomer table, 
 sorted by customer_last_name, then customer_first_ name. */
-SELECT customer_id, customer_first_name,customer_last_name,customer_postal_code
+SELECT *
 FROM customer
 ORDER BY customer_last_name, customer_first_name
 LIMIT 10;
@@ -81,9 +81,9 @@ ORDER by ven.vendor_name, vba.market_date;
 -- AGGREGATE
 /* 1. Write a query that determines how many times each vendor has rented a booth 
 at the farmer’s market by counting the vendor booth assignments per vendor_id. */
-SELECT vendor_id, count(vendor_id) as total_rental
+SELECT vendor_id, booth_number, count(booth_number) as total_booth_rental
 FROM vendor_booth_assignments
-GROUP by vendor_id
+GROUP by vendor_id, booth_number;
 
 
 /* 2. The Farmer’s Market Customer Appreciation Committee wants to give a bumper 
